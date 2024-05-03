@@ -38,8 +38,12 @@ echo 'abc  def' | cut -f2 -d ' ' # A similar example #
 cut -d ',' -f1,3 ../assets/data.csv # extracting the 1st & 3rd fields from a csv file #
 
 # Basics of `tr` command :
-# tr doesn't stand for transform or truncate or trim. It stands for translate.
-echo "Thissss isss a liine off texttt" | tr -s '[:lower:]' '[:upper:]'
+# `tr` doesn't stand for transform or truncate or trim. It stands for translate.
+# The `tr` command is used for translating or deleting characters from a string or a stream of text.
+echo "Thissss isss a liine off texttt" | tr -s '[:lower:]' '[:upper:]'  # the `-s` option tells `tr` to substitute all occurrences of a given character pattern,
+                                                                        # with another character pattern.
 echo "Thissss isss a liine   off texttt" | tr -s 'aeiou '
 echo "This is a line of text" | tr -d 'aeiou'
 echo "This is a line of text" | tr -d 'aeiou '
+head /dev/random | tr -cd '[:print:]\n' # head takes first 10 lines of a file & prints them to standard output.
+                                        # the `-cd` option in `tr` tells to delete the complements of the specified string from input.
